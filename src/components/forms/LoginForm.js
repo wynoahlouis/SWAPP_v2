@@ -55,14 +55,17 @@ export default function LoginForm({ navigation }) {
       }) => {
         return (
           <View styles={{ flex: 1 }}>
-            <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='cover'/>
             <Text style={styles.title}>Welcome back!</Text>
+            <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
+            <Text style={styles.appName}>SWAPP</Text>
+            <View style={{paddingRight: 10, paddingLeft:10}}>
             <TextInput
               mode="outlined"
               placeholder="Email"
               label="Email"
               left={<TextInput.Icon icon="email" />}
-              style={{ marginTop: 10 }}
+              // style={{ marginTop: 10 }}
+              style={styles.userInput}
               defaultValue={values.email}
               value={values.email}
               keyboardType="email-address"
@@ -88,7 +91,7 @@ export default function LoginForm({ navigation }) {
                   onPress={() => setShowPass(!showPass)}
                 />
               }
-              style={{ marginTop: 10, marginBottom: 30}}
+              style={{ marginTop: 10, marginBottom: 0}}
               value={values.password}
               onChangeText={handleChange("password")}
               onBlur={handleBlur("password")}
@@ -100,6 +103,7 @@ export default function LoginForm({ navigation }) {
                 {errors.password}
               </HelperText>
             )}
+          </View>
             <TouchableOpacity
               loading={isSubmitting}
               disabled={isSubmitting}
@@ -110,7 +114,15 @@ export default function LoginForm({ navigation }) {
             >
             <Text style={styles.buttonText}>Login</Text>  
             </TouchableOpacity>
-            <TouchableOpacity
+
+            <View style={styles.infoText}>
+            <Text style={{fontSize:15}}> Don't have an account?{' '}
+              <Text style={styles.signUpText} onPress={() => navigation.navigate("Register")}>Sign up</Text>
+            </Text>
+
+            </View>
+
+            {/* <TouchableOpacity
               disabled={isSubmitting}
               onPress={() => navigation.navigate("Register")}
               icon="account-plus"
@@ -118,7 +130,7 @@ export default function LoginForm({ navigation }) {
               style={styles.button}
             >
             <Text style={styles.buttonText}>Register</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         );
       }}
@@ -134,14 +146,13 @@ const styles = StyleSheet.create({
       backgroundColor: '#ffffff',
   },
   button: {
-    width: '80%',
+    width: '70%',
     alignItems: 'center',
-    justifyContent: 'center',
     paddingVertical: 14,
     backgroundColor: '#365486',
     borderRadius: 30,
-    marginTop: 10,
-    marginLeft: 30,
+    marginTop: 30,
+    marginLeft: 60,
   },
   buttonText: {
     color: 'white',
@@ -149,19 +160,41 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   logo:{
-    width: 350,
-    height: 350,
-    marginTop: -130,
-    marginBottom: 0,
-    marginLeft: 15
+    width: 250,
+    height: 250,
+    marginTop: 50,
+    marginBottom: 10,
+    marginLeft: 75,
+    alignItems: 'center'
 },
 title: {
   fontSize: 30,
   fontWeight: 'bold',
-  marginBottom: 20,
-  marginTop: -80,
-  marginLeft: 80
-
+  marginBottom: 0,
+  marginTop: 20
+  // marginTop: -80,
+  // marginLeft: 80
 },
+appName:{
+  marginTop: 5,
+  marginBottom:10,
+  fontSize: 40,
+  fontWeight: '900', // React Native uses string values for fontWeight
+  lineHeight: 38,
+  letterSpacing: 3,
+  textAlign: 'center',
+},
+signUpText: {
+  color: 'blue', // Set the desired text color
+  textDecorationLine: 'underline', // Underline the text to indicate it's clickable
+},
+infoText: {
+  marginTop: 10,
+  alignItems: 'center'
+}
+// userInput:{
+//   marginTop: 10,
+//   borderRadius: 40
+// }
 }
 )

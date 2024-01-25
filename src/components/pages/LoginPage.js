@@ -8,7 +8,10 @@ export default function LoginPage(props) {
       style={{
         flex: 1,
         padding: 20,
-        justifyContent: "center",
+        // justifyContent: "center",
+        justifyContent: 'flex-start',
+        // backgroundColor: '#ffffff',
+
       }}
     >
       <LoginForm {...props} />
