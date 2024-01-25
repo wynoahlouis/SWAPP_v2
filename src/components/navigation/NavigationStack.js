@@ -66,7 +66,7 @@ const CustomStackNavigator = () => (
     <Stack.Screen
       options={{ headerShown: false }}
       name="Landing"
-      component={LandingPage}
+      component={HomePage}
     />
     <Stack.Screen
       options={{ headerShown: false }}

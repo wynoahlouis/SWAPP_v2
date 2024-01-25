@@ -4,6 +4,7 @@ import { Button, Avatar, Title, Caption, Text, TouchableRipple } from "react-nat
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import { useUser } from './UserContext';
+import styles from '../../config/styles';
 
 
 const ProfilePage = () => {
@@ -31,7 +32,7 @@ const ProfilePage = () => {
       };
   
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.profileContainer}>
         <ScrollView>
         <View style={styles.userInfoSection}>
           <View style={{flexDirection: 'row', marginTop: 15}}>
@@ -40,7 +41,7 @@ const ProfilePage = () => {
               size={80}
             />
             <View style={{marginLeft: 20}}>
-              <Title style={[styles.title, {marginTop:15, marginBottom: 5,}]}>{userName}</Title>
+              <Title style={[styles.username, {marginTop:15, marginBottom: 5,}]}>{userName}</Title>
               <Caption style={styles.caption}>{`@${userEmail}`}</Caption>
             </View>
           </View>
@@ -48,19 +49,19 @@ const ProfilePage = () => {
   
         <View style={styles.userInfoSection}>
           <View style={styles.row}>
-            <Icon name="map-marker-radius" color="#777777" size={20}/>
+            <Icon name="map-marker-radius" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>Cagayan de Oro City, Philippines</Text>
           </View>
           <View style={styles.row}>
-            <Icon name="phone" color="#777777" size={20}/>
+            <Icon name="phone" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>09356362269</Text>
           </View>
           <View style={styles.row}>
-            <Icon name="email" color="#777777" size={20}/>
+            <Icon name="email" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>wynoahtabasan@gmail.com</Text>
           </View>
           <View style={styles.row}>
-            <Icon name="cake" color="#777777" size={20}/>
+            <Icon name="cake" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>April 26, 2002</Text>
           </View>
         </View>
@@ -70,11 +71,11 @@ const ProfilePage = () => {
               borderRightColor: '#dddddd',
               borderRightWidth: 1
             }]}>
-              <Title>$140.50</Title>
+              <Title style={{color:"#32cd32"}}>$140.50</Title>
               <Caption>Wallet</Caption>
             </View>
             <View style={styles.infoBox}>
-              <Title>12</Title>
+              <Title style={{color:"#365486"}}>21</Title>
               <Caption>Age</Caption>
             </View>
         </View>
@@ -124,54 +125,54 @@ const ProfilePage = () => {
   
   export default ProfilePage;
   
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      marginTop: 50,
-    },
-    userInfoSection: {
-      paddingHorizontal: 30,
-      marginBottom: 25,
-    },
-    title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
-    caption: {
-      fontSize: 14,
-      lineHeight: 14,
-      fontWeight: '500',
-    },
-    row: {
-      flexDirection: 'row',
-      marginBottom: 10,
-    },
-    infoBoxWrapper: {
-      borderBottomColor: '#dddddd',
-      borderBottomWidth: 1,
-      borderTopColor: '#dddddd',
-      borderTopWidth: 1,
-      flexDirection: 'row',
-      height: 100,
-    },
-    infoBox: {
-      width: '50%',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    profileWrapper: {
-      marginTop: 10,
-    },
-    profileItem: {
-      flexDirection: 'row',
-      paddingVertical: 15,
-      paddingHorizontal: 30,
-    },
-    profileItemText: {
-      color: '#777777',
-      marginLeft: 20,
-      fontWeight: '600',
-      fontSize: 16,
-      lineHeight: 26,
-    },
-  });
+  // const styles = StyleSheet.create({
+  //   container: {
+  //     flex: 1,
+  //     marginTop: 50,
+  //   },
+  //   userInfoSection: {
+  //     paddingHorizontal: 30,
+  //     marginBottom: 25,
+  //   },
+  //   title: {
+  //     fontSize: 24,
+  //     fontWeight: 'bold',
+  //   },
+  //   caption: {
+  //     fontSize: 14,
+  //     lineHeight: 14,
+  //     fontWeight: '500',
+  //   },
+  //   row: {
+  //     flexDirection: 'row',
+  //     marginBottom: 10,
+  //   },
+  //   infoBoxWrapper: {
+  //     borderBottomColor: '#dddddd',
+  //     borderBottomWidth: 1,
+  //     borderTopColor: '#dddddd',
+  //     borderTopWidth: 1,
+  //     flexDirection: 'row',
+  //     height: 100,
+  //   },
+  //   infoBox: {
+  //     width: '50%',
+  //     alignItems: 'center',
+  //     justifyContent: 'center',
+  //   },
+  //   profileWrapper: {
+  //     marginTop: 10,
+  //   },
+  //   profileItem: {
+  //     flexDirection: 'row',
+  //     paddingVertical: 15,
+  //     paddingHorizontal: 30,
+  //   },
+  //   profileItemText: {
+  //     color: '#777777',
+  //     marginLeft: 20,
+  //     fontWeight: '600',
+  //     fontSize: 16,
+  //     lineHeight: 26,
+  //   },
+  // });
