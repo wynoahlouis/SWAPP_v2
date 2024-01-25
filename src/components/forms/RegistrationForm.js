@@ -62,8 +62,11 @@
 
     return (
       <View styles={{ flex: 1 }}>
-        <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='cover'/>
-        <Text style={styles.title}>Register Now!</Text>
+        <Text style={styles.title}>Create an account!</Text>
+        <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
+        {/* <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
+        <Text style={styles.appName}>SWAPP</Text> */}
+        
         <TextInput
           mode="outlined"
           placeholder="Name"
@@ -163,17 +166,26 @@
     },
     logo:{
       width: 350,
-      height: 450,
-      marginTop: -130,
-      marginBottom: 0,
-      marginLeft: 15
+      height: 160,
+      marginTop: 30,
+      marginBottom: 10,
+      // marginLeft: 70,
+      alignItems: 'center'
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: -80,
-    marginLeft: 80
-
+    marginBottom: 0,
+    marginTop: 20
+  },
+  appName:{
+    marginTop: 5,
+    marginBottom:10,
+    fontSize: 40,
+    fontWeight: '900', // React Native uses string values for fontWeight
+    lineHeight: 38,
+    letterSpacing: 3,
+    textAlign: 'center',
   },
   }
   )
