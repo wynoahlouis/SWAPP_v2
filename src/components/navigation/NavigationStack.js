@@ -12,6 +12,7 @@ import SleepTrackerPage from "../pages/SleepTrackerPage";
 import BMICalculatorPage from "../pages/BMICalculatorPage";
 import EditProfilePage from "../pages/EditProfilePage";
 import DummyScreen from "../pages/DummyScreen";
+import HydrationReminderPage from "../pages/HydrationReminderPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -70,13 +71,13 @@ const CustomStackNavigator = () => (
     />
     <Stack.Screen
       options={{ headerShown: false }}
-      name="Login"
-      component={LoginPage}
+      name="Register"
+      component={RegistrationPage}
     />
     <Stack.Screen
       options={{ headerShown: false }}
-      name="Register"
-      component={RegistrationPage}
+      name="Login"
+      component={LoginPage}
     />
     <Stack.Screen
       options={{ headerShown: false }}
@@ -98,7 +99,13 @@ const CustomStackNavigator = () => (
       name="Dummy"
       component={DummyScreen}
     />
+    <Stack.Screen
+      options={{ headerShown: false }}
+      name="HydrationReminder"
+      component={HydrationReminderPage}
+    />
   </Stack.Navigator>
+    
 );
 
 const NavigationStack = () => <CustomStackNavigator />;
