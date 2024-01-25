@@ -14,7 +14,7 @@ const DummyScreen = () => {
             <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
         </View> 
       <TouchableOpacity onPress={() => navigation.navigate("Home")} icon="account-plus" mode="contained" style={styles.button}>
-          <Text style={styles.buttonText}>Dummy Screen</Text>
+          <Text style={styles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
