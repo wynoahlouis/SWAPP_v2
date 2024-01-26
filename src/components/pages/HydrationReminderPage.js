@@ -65,7 +65,7 @@ const HydrationReminderPage = () => {
               <Picker.Item label={index.toString()} value={index.toString()} key={index} />
             ))}
           </Picker>
-          <Text style={styles.unitText}>Hrs</Text>
+          <Text style={styles.unitText}>Hours</Text>
         </View>
 
         <View style={styles.pickerWithUnit}>
@@ -78,7 +78,7 @@ const HydrationReminderPage = () => {
               <Picker.Item label={index.toString()} value={index.toString()} key={index} />
             ))}
           </Picker>
-          <Text style={styles.unitText}>Min</Text>
+          <Text style={styles.unitText}>Minutes</Text>
         </View>
       </View>
       <TouchableOpacity style={styles.button} onPress={handleStartTimer}>
@@ -97,46 +97,51 @@ const HydrationReminderPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 32,
+    fontWeight: 'bold',
     marginBottom: 20,
   },
   pickerContainer: {
     flexDirection: 'row',
-    justifyContent: 'center', // Center the row
     marginBottom: 20,
   },
   pickerWithUnit: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginHorizontal: 10,
   },
   picker: {
     width: 100,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    marginHorizontal: 5,
     justifyContent: 'center',
   },
   unitText: {
     marginLeft: 10,
     fontSize: 18,
+    fontWeight: 'bold',
   },
   button: {
     backgroundColor: '#3498db',
-    padding: 10,
+    padding: 15,
     borderRadius: 5,
     marginBottom: 10,
   },
   buttonText: {
     color: 'white',
-    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   remainingTime: {
     marginTop: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

@@ -37,7 +37,9 @@
           return false;
         }
 
-        const url = 'http://192.168.1.5:8000/api/v1/register';
+        // const url = 'http://192.168.1.5:8000/api/v1/register';
+        const url = 'http://192.168.116.40:8000/api/v1/register';
+
 
         const data = {
           name,
