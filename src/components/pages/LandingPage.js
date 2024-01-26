@@ -16,9 +16,9 @@ function LandingPage() {
   return (
     <SafeAreaView style={styles.container}>
         <View>
-            <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
+            <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
         </View>
-        <Text style={styles.appName}>SWAPP</Text>
+        {/* <Text style={styles.appName}>SWAPP</Text> */}
         <Text style={styles.subHeading}>Your companion for a healthier mind & body</Text>
         <View style={styles.loginsignup}>
             <TouchableOpacity style={styles.loginButton} onPress={handleLoginPress}>
@@ -40,23 +40,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
-        backgroundColor: '#ffffff',
+        // backgroundColor: '#ffffff',
         // marginTop: 50,
     },
     loginsignup:{
         marginTop: 15,
     },
     subHeading: {
-        fontSize: 20,
+        fontSize: 17,
         textAlign: 'center',
-        marginTop: 10,
+        marginTop: 5,
         marginBottom: 20,
         fontStyle: "italic",
         fontWeight: "500"
       },
     loginButton:{
         marginTop: 20,
-        width: 300,
+        width: 250,
+        // width: 330,
         padding: 15,
         textAlign: 'center',
         backgroundColor:'#365486',
@@ -88,9 +89,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     logo:{
-        width: 500,
-        height: 250,
-        // marginTop: 70
+        width: 400,
+        height: 160,
+        marginTop: -70
     },
 
     appName:{
