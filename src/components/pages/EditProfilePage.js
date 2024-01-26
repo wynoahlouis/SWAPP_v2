@@ -85,7 +85,7 @@ const EditProfilePage = ({ navigation }) => {
     updateUserDetails(editedName, editedAccountName);
 
     // Navigate back to the previous screen (ProfilePage)
-    navigation.goBack();
+    navigation.navigate('Profile');
   };
 
   return (

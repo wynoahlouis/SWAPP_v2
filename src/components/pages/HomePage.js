@@ -44,12 +44,29 @@ const HydrationReminderButton = ({ onPress }) => {
       <View style={styles.hydrationReminderImageContainer}>
         <Image source={require('..//..//../assets/hydration.png')} style={styles.waterImage} />
       </View>
-      <View style={styles.hydrationReminderTextContainer}>
+      
+      {/* <View style={styles.hydrationReminderTextContainer}>
         <Text style={styles.hydrationReminderText}>
           Stay refreshed with our{" "}
           <Text style={styles.hydrationReminderHighlight}>Hydration Reminder!</Text>
         </Text>
+      </View> */}
+
+      {/* <View style={styles.hydrationReminderTextContainer}>
+        <Text style={styles.hydrationReminderText}>
+          It's better to {" "}
+          <Text style={styles.hydrationReminderHighlight}>HYDRATE </Text>
+          than to VIBRATE
+        </Text>
+      </View> */}
+
+      <View style={styles.hydrationReminderTextContainer}>
+        <Text style={styles.hydrationReminderText}>
+          Water Breaks Made Easy:  {" "}
+          <Text style={styles.hydrationReminderHighlight}>Try Our Reminder!</Text>
+        </Text>
       </View>
+
       <View style={styles.arrowButtonContainer}>
         <Icon name="arrow-right" size={20} color="white" />
       </View>

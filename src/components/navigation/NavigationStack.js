@@ -53,7 +53,7 @@ const HomeTabNavigator = () => (
       }}
     />
 
-<Tab.Screen
+    <Tab.Screen
       name="HydrationReminder"
       component={HydrationReminderPage} // Use CustomStackNavigator for HydrationReminder
       options={{
@@ -73,11 +73,21 @@ const HomeTabNavigator = () => (
         headerShown: false
       }}
     />
+
+    <Tab.Screen
+      name="EditProfile"
+      component={EditProfilePage} // Use CustomStackNavigator for HydrationReminder
+      options={{
+        tabBarButton: () => null, // No button for HydrationReminderPage
+        headerShown: false
+
+      }}
+    />
   </Tab.Navigator>
 );
 
 const CustomStackNavigator = () => (
-  <Stack.Navigator initialRouteName="Register">
+  <Stack.Navigator initialRouteName="Home">
     <Stack.Screen
       options={{ headerShown: false }}
       name="Landing"
