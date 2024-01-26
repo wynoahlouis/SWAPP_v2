@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import styles from '../../config/styles';
 
 const formatTime = (time) => {
   const hours = Math.floor(time / 3600);
@@ -52,7 +53,7 @@ const HydrationReminderPage = () => {
   }, [remainingTime]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container2}>
       <Text style={styles.title}>Hydration Reminder</Text>
       <View style={styles.pickerContainer}>
         <View style={styles.pickerWithUnit}>
@@ -81,12 +82,17 @@ const HydrationReminderPage = () => {
           <Text style={styles.unitText}>Min</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.button} onPress={handleStartTimer}>
-        <Text style={styles.buttonText}>Start Timer</Text>
+      <TouchableOpacity style={styles.button2} onPress={handleStartTimer}>
+        <Text style={styles.buttonText2}>Start Timer</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleStopTimer}>
-        <Text style={styles.buttonText}>Stop Timer</Text>
+      <TouchableOpacity style={styles.stopbutton} onPress={handleStopTimer}>
+        <Text style={styles.stopButtonText}>Stop Timer</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.button}>
+        <Text style={styles.buttonText}>Back to Home</Text>
+      </TouchableOpacity>
+      
       {remainingTime !== null && (
         <Text style={styles.remainingTime}>Remaining Time: {formatTime(remainingTime)}</Text>
       )}
@@ -94,50 +100,50 @@ const HydrationReminderPage = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  pickerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center', // Center the row
-    marginBottom: 20,
-  },
-  pickerWithUnit: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  picker: {
-    width: 100,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginHorizontal: 5,
-    justifyContent: 'center',
-  },
-  unitText: {
-    marginLeft: 10,
-    fontSize: 18,
-  },
-  button: {
-    backgroundColor: '#3498db',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: 'white',
-    textAlign: 'center',
-  },
-  remainingTime: {
-    marginTop: 20,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   title: {
+//     fontSize: 24,
+//     marginBottom: 20,
+//   },
+//   pickerContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'center', // Center the row
+//     marginBottom: 20,
+//   },
+//   pickerWithUnit: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//   },
+//   picker: {
+//     width: 100,
+//     height: 40,
+//     borderColor: 'gray',
+//     borderWidth: 1,
+//     marginHorizontal: 5,
+//     justifyContent: 'center',
+//   },
+//   unitText: {
+//     marginLeft: 10,
+//     fontSize: 18,
+//   },
+//   button: {
+//     backgroundColor: '#3498db',
+//     padding: 10,
+//     borderRadius: 5,
+//     marginBottom: 10,
+//   },
+//   buttonText: {
+//     color: 'white',
+//     textAlign: 'center',
+//   },
+//   remainingTime: {
+//     marginTop: 20,
+//   },
+// });
 
 export default HydrationReminderPage;

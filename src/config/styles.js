@@ -122,6 +122,48 @@ const styles = StyleSheet.create({
 
     // BMI Calculator
 
+    // Hydration
+      pickerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center', // Center the row
+        marginBottom: 20,
+      },
+      pickerWithUnit: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderStyle: 'solid',
+        borderWidth: 0.5,
+        padding: 5,
+      },
+      picker: {
+        width: 100,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginHorizontal: 0,
+        justifyContent: 'center',
+      },
+      unitText: {
+        marginLeft: 0,
+        fontSize: 18,
+      },
+      remainingTime: {
+        marginTop: 20,
+      },
+      stopButton: {
+        backgroundColor: '#ff6666',
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 10,
+        width: '100',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      stopButtonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+      },
+
   
 
     //Profile Page
