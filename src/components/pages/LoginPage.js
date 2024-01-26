@@ -1,20 +1,15 @@
-import { View } from "react-native";
 import React from "react";
 import LoginForm from "../forms/LoginForm";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default function LoginPage(props) {
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: 20,
-        // justifyContent: "center",
-        justifyContent: 'flex-start',
-        // backgroundColor: '#ffffff',
-
-      }}
+    <KeyboardAwareScrollView
+      contentContainerStyle={{ flexGrow: 1 }}
+      style={{ padding: 20 }}
+      keyboardShouldPersistTaps="handled"
     >
       <LoginForm {...props} />
-    </View>
+    </KeyboardAwareScrollView>
   );
 }
