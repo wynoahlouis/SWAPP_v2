@@ -216,6 +216,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+
+    infoBox2: {
+      width: '50%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
     profileWrapper: {
       marginTop: 10,
     },

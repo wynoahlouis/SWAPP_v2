@@ -70,7 +70,7 @@
 // ------------------------------------------------
 
 import React, { useState } from 'react';
-import { View, StyleSheet, SafeAreaView, TextInput, Image } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TextInput, Image, TouchableOpacity } from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import { useUser } from './UserContext';
 
@@ -110,11 +110,14 @@ const EditProfilePage = ({ navigation }) => {
             style={styles.input}
             value={editedAccountName}
             onChangeText={(text) => setEditedAccountName(text)}
-          />      
+          />  
 
-          <Button mode="contained" onPress={onSaveChanges} style={styles.button}>
-            Save Changes
-          </Button>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity mode="contained" onPress={onSaveChanges} style={styles.button}>
+              <Text style={styles.buttonText}>Save Changes</Text>
+            </TouchableOpacity>
+          </View>
+          
         </View>
       </View>
     </SafeAreaView>
@@ -137,24 +140,41 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    width: 120,
-    height: 120,
+    width: 150,
+    height: 150,
     borderRadius: 60,
   },
   formContainer: {
-    marginTop: 20,
+    marginTop: 10,
   },
   input: {
-    height: 40,
+    height: 50,
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 20,
+    marginBottom: 15,
     paddingHorizontal: 10,
+    borderRadius: 10,
   },
   button: {
+    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 14,
     backgroundColor: '#365486',
+    borderRadius: 30,
+    borderWidth: 2.5,
+    borderStyle: 'solid',
+    borderColor: '#365486',
     marginTop: 20,
   },
+  buttonText: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  buttonContainer: {
+    alignItems: 'center'
+  }
 });
 
 // ------------------------------------------------
