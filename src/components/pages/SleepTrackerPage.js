@@ -10,7 +10,7 @@ export default function SleepTrackerApp() {
   const [sleepTime, setSleepTime] = useState('');
   const [wakeTime, setWakeTime] = useState('');
   const [sleepResult, setSleepResult] = useState([]);
-  const [showHistory, setShowHistory] = useState(true);
+  const [showHistory, setShowHistory] = useState(false);
 
   const showSleepTimePicker = () => {
     setSleepTimePickerVisible(true);

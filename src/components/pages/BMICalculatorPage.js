@@ -352,7 +352,7 @@ export default function BMICalculatorPage() {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [bmiResult, setBmiResult] = useState([]);
-  const [showHistory, setShowHistory] = useState(true);
+  const [showHistory, setShowHistory] = useState(false);
   const currentDate = new Date().toLocaleString();
 
   const validateForm = () => {

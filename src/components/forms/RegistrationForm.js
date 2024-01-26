@@ -71,6 +71,7 @@
           mode="outlined"
           placeholder="Name"
           label="Name"
+          left={<TextInput.Icon icon="account" />}
           style={{ marginTop: 10 }}
           value={name}
           onChangeText={setName}
@@ -80,6 +81,8 @@
           mode="outlined"
           placeholder="Email"
           label="Email"
+          left={<TextInput.Icon icon="email" />}
+
           style={{ marginTop: 10 }}
           value={email}
           onChangeText={setEmail}
@@ -89,6 +92,9 @@
           mode="outlined"
           placeholder="Password"
           label="Password"
+
+          left={<TextInput.Icon icon="lock" />}
+
           secureTextEntry={!showPass}
           right={
             <TextInput.Icon
@@ -105,6 +111,8 @@
           mode="outlined"
           placeholder="Re-type Password"
           label="Re-type Password"
+          left={<TextInput.Icon icon="lock" />}
+
           secureTextEntry={!showRePass}
           right={
             <TextInput.Icon
@@ -182,7 +190,7 @@
     marginTop: 5,
     marginBottom:10,
     fontSize: 40,
-    fontWeight: '900', // React Native uses string values for fontWeight
+    fontWeight: '900', 
     lineHeight: 38,
     letterSpacing: 3,
     textAlign: 'center',

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
 // import styles from '../../config/styles';
 
 
@@ -17,9 +18,9 @@ const HomePage = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handleNavigateToDummy} style={styles.button}>
+      {/* <TouchableOpacity onPress={handleNavigateToDummy} style={styles.button}>
         <Text style={styles.buttonText}>Dummy Screen</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <HydrationReminderButton onPress={handleNavigateToHydrationReminder} />
     </View>
@@ -35,8 +36,7 @@ const HydrationReminderButton = ({ onPress }) => {
         <Text style={styles.hydrationReminderHighlight}>Hydration Reminder!</Text>
       </Text>
       <TouchableOpacity onPress={onPress} style={styles.arrowButton}>
-        {/* You can replace the arrow emoji with an image or icon */}
-        <Text style={styles.buttonText}>➡️</Text>
+        <Icon name="arrow-right" size={20} color="white" />
       </TouchableOpacity>
     </View>
   );

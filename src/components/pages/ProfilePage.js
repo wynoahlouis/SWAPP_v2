@@ -162,7 +162,6 @@
 //     },
 //   });
 
-
 import React from "react";
 import { Button, Avatar, Title, Caption, Text, TouchableRipple } from "react-native-paper";
 import { View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
@@ -177,7 +176,7 @@ const ProfilePage = () => {
   const { userName, userAccountName, updateUserDetails, bmi, userEmail } = useUser();
 
     const onEditProfile = () => {
-        navigation.navigate('EditProfilePage');
+        navigation.navigate('EditProfile');
       };
   
     return (
@@ -191,7 +190,7 @@ const ProfilePage = () => {
             />
             <View style={{marginLeft: 20}}>
               <Title style={[styles.title, {marginTop:15, marginBottom: 5,}]}>{userName}</Title>
-              <Caption style={styles.caption}>{`@${userEmail}`}</Caption>
+              <Caption style={styles.caption}>{`@${userAccountName}`}</Caption>
             </View>
           </View>
         </View>
@@ -216,17 +215,24 @@ const ProfilePage = () => {
         </View>
 
         <View style={styles.infoBoxWrapper}>
-            <View style={[styles.infoBox, {
-              borderRightColor: '#dddddd',
-              borderRightWidth: 1
-            }]}>
-              <Title>$140.50</Title>
-              <Caption>Wallet</Caption>
-            </View>
-            <View style={styles.infoBox}>
-              <Title>12</Title>
-              <Caption>Age</Caption>
-            </View>
+        <View style={[styles.infoBox, {
+            borderRightColor: '#dddddd',
+            borderRightWidth: 1
+          }]}>
+            <Title>21</Title>
+            <Caption>Age</Caption>
+          </View>
+          <View style={[styles.infoBox, {
+            borderRightColor: '#dddddd',
+            borderRightWidth: 1
+          }]}>
+            <Title>{bmi}</Title>
+            <Caption>Body Mass Index</Caption>
+          </View>
+          <View style={styles.infoBox}>
+            <Title>155 cm</Title>
+            <Caption>Height</Caption>
+          </View>
         </View>
 
         <View style={styles.profileWrapper}>

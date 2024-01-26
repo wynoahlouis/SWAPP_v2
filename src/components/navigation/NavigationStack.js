@@ -66,11 +66,11 @@ const HomeTabNavigator = () => (
 );
 
 const CustomStackNavigator = () => (
-  <Stack.Navigator initialRouteName="Landing">
+  <Stack.Navigator initialRouteName="Home">
     <Stack.Screen
       options={{ headerShown: false }}
       name="Landing"
-      component={HomePage}
+      component={LandingPage}
     />
     <Stack.Screen
       options={{ headerShown: false }}
