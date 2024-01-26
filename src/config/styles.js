@@ -117,53 +117,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
 
+    // Home Page
+    
+
     // BMI Calculator
 
-    // title: {
-    //   fontSize: 24,
-    //   fontWeight: 'bold',
-    //   marginBottom: 20,
-    // },
-    // input: {
-    //   width: '80%',
-    //   height: 50,
-    //   padding: 10,
-    //   borderWidth: 1,
-    //   borderColor: '#ccc',
-    //   borderRadius: 5,
-    //   marginBottom: 10,
-    // },
-    // button: {
-    //   width: '80%',
-    //   height: 50,
-    //   backgroundColor: '#1e90ff',
-    //   borderRadius: 5,
-    //   alignItems: 'center',
-    //   justifyContent: 'center',
-    //   marginTop: 20,
-    //   marginBottom: 10,
-    // },
-    // buttonText: {
-    //   color: '#fff',
-    //   fontSize: 18,
-    //   fontWeight: 'bold',
-    // },
-    
-    
-    
-    // toggleButton: {
-    //   backgroundColor: '#ccc',
-    //   padding: 10,
-    //   borderRadius: 5,
-    //   width: '80%',
-    //   alignItems: 'center',
-    //   justifyContent: 'center',
-    //   marginBottom: 10,
-    // },
-    // toggleButtonText: {
-    //   color: '#333',
-    //   fontWeight: 'bold',
-    // },
+  
 
     //Profile Page
     profileContainer: {
