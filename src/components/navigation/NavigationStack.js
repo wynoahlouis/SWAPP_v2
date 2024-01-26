@@ -14,6 +14,9 @@ import EditProfilePage from "../pages/EditProfilePage";
 import DummyScreen from "../pages/DummyScreen";
 import HydrationReminderPage from "../pages/HydrationReminderPage";
 
+import { View, Text } from "react-native";
+
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -89,11 +92,21 @@ const CustomStackNavigator = () => (
       name="Profile"
       component={ProfilePage}
     />
-    <Stack.Screen
-      options={{ headerShown: false }}
+    {/* <Stack.Screen
+      options={{ headerShown: () => () }}
       name="EditProfile"
       component={EditProfilePage}
-    />
+    /> */}
+    <Stack.Screen
+        options={{
+          header: () => (
+            // Custom header component for EditProfilePage
+            <Header title="Edit Profile" />
+          ),
+        }}
+        name="EditProfile"
+        component={EditProfilePage}
+      />
     <Stack.Screen
       options={{ headerShown: false }}
       name="Dummy"
@@ -110,4 +123,12 @@ const CustomStackNavigator = () => (
 
 const NavigationStack = () => <CustomStackNavigator />;
 
+const Header = ({ title }) => {
+  return (
+    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{title}</Text>
+    </View>
+  );
+}
 export default NavigationStack;
+
