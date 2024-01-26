@@ -77,7 +77,7 @@ const HomeTabNavigator = () => (
 );
 
 const CustomStackNavigator = () => (
-  <Stack.Navigator initialRouteName="Home">
+  <Stack.Navigator initialRouteName="Register">
     <Stack.Screen
       options={{ headerShown: false }}
       name="Landing"

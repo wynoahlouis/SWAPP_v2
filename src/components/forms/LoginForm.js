@@ -57,7 +57,7 @@ export default function LoginForm({ navigation }) {
       }) => {
         return (
           <View styles={{ flex: 1 }}>
-            <Text style={styles.title}>Welcome back!</Text>
+            <Text style={styles.title}></Text>
             <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
             <Text style={styles.appName}>SWAPP</Text>
             <View style={{paddingRight: 10, paddingLeft:10}}>
@@ -65,7 +65,7 @@ export default function LoginForm({ navigation }) {
               mode="outlined"
               placeholder="Email"
               label="Email"
-              left={<TextInput.Icon icon="email" />}
+              left={<TextInput.Icon icon="email" color={'#365486'} />}
               // style={{ marginTop: 10 }}
               style={styles.userInput}
               defaultValue={values.email}
@@ -85,12 +85,13 @@ export default function LoginForm({ navigation }) {
               mode="outlined"
               placeholder="Password"
               label="Password"
-              left={<TextInput.Icon icon="key" />}
+              left={<TextInput.Icon icon="key" color={'#365486'} />}
               secureTextEntry={!showPass}
               right={
                 <TextInput.Icon
                   icon={showPass ? "eye" : "eye-off"}
                   onPress={() => setShowPass(!showPass)}
+                  color={'#365486'}
                 />
               }
               style={{ marginTop: 10, marginBottom: 0}}
@@ -185,9 +186,10 @@ appName:{
   lineHeight: 38,
   letterSpacing: 3,
   textAlign: 'center',
+  color: '#365486',
 },
 signUpText: {
-  color: 'blue', // Set the desired text color
+  color: '#365486', // Set the desired text color
   textDecorationLine: 'underline', // Underline the text to indicate it's clickable
 },
 infoText: {

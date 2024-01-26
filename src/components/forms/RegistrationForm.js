@@ -64,16 +64,16 @@
 
     return (
       <View styles={{ flex: 1 }}>
-        <Text style={styles.title}>Create an account!</Text>
+        
         <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
         {/* <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
         <Text style={styles.appName}>SWAPP</Text> */}
-        
+        <Text style={styles.title}>Create an account:</Text>
         <TextInput
           mode="outlined"
           placeholder="Name"
           label="Name"
-          left={<TextInput.Icon icon="account" />}
+          left={<TextInput.Icon icon="account" color={'#365486'} />}
           style={{ marginTop: 10 }}
           value={name}
           onChangeText={setName}
@@ -83,7 +83,7 @@
           mode="outlined"
           placeholder="Email"
           label="Email"
-          left={<TextInput.Icon icon="email" />}
+          left={<TextInput.Icon icon="email" color={'#365486'} />}
 
           style={{ marginTop: 10 }}
           value={email}
@@ -95,13 +95,14 @@
           placeholder="Password"
           label="Password"
 
-          left={<TextInput.Icon icon="lock" />}
+          left={<TextInput.Icon icon="lock" color={'#365486'} />}
 
           secureTextEntry={!showPass}
           right={
             <TextInput.Icon
               icon={showPass ? "eye" : "eye-off"}
               onPress={() => setShowPass(!showPass)}
+              color={'#365486'}
             />
           }
           style={{ marginTop: 10 }}
@@ -113,13 +114,14 @@
           mode="outlined"
           placeholder="Re-type Password"
           label="Re-type Password"
-          left={<TextInput.Icon icon="lock" />}
+          left={<TextInput.Icon icon="lock" color={'#365486'}/>}
 
           secureTextEntry={!showRePass}
           right={
             <TextInput.Icon
               icon={showPass ? "eye" : "eye-off"}
               onPress={() => setShowRePass(!showRePass)}
+              color={'#365486'}
             />
           }
           style={{ marginTop: 10, marginBottom:20}}
@@ -186,7 +188,8 @@
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 0,
-    marginTop: 20
+    marginTop: 20,
+    color: '#365486',
   },
   appName:{
     marginTop: 5,
