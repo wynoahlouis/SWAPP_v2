@@ -63,7 +63,7 @@ const HydrationReminderButton = ({ onPress }) => {
       <View style={styles.hydrationReminderTextContainer}>
         <Text style={styles.hydrationReminderText}>
           Water Breaks Made Easy:  {" "}
-          <Text style={styles.hydrationReminderHighlight}>Try Our Reminder!</Text>
+          <Text style={styles.hydrationReminderHighlight}>Set A Reminder Now!</Text>
         </Text>
       </View>
 
