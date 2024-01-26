@@ -109,8 +109,7 @@ const EditProfilePage = ({ navigation }) => {
             style={styles.input}
             value={editedAccountName}
             onChangeText={(text) => setEditedAccountName(text)}
-          />
-      
+          />      
 
           <Button mode="contained" onPress={onSaveChanges} style={styles.button}>
             Save Changes

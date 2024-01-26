@@ -2,6 +2,8 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
+// import styles from '../../config/styles';
+
 
 const HomePage = () => {
   const navigation = useNavigation();
@@ -128,6 +130,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: 10,
   },
+  
 });
 
 export default HomePage;

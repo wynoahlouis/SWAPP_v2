@@ -344,6 +344,7 @@
 // PERVIOUSLY WORKING WITHOUT THE HEIGHT CHUCHU
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar, ScrollView } from 'react-native';
+import styles from '../../config/styles';
 import { useUser } from './UserContext';
 
 export default function BMICalculatorPage() {
@@ -351,7 +352,7 @@ export default function BMICalculatorPage() {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [bmiResult, setBmiResult] = useState([]);
-  const [showHistory, setShowHistory] = useState(true);
+  const [showHistory, setShowHistory] = useState(false);
   const currentDate = new Date().toLocaleString();
 
   const validateForm = () => {
@@ -393,7 +394,7 @@ export default function BMICalculatorPage() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container2}>
       <Text style={styles.title}>BMI Calculator</Text>
       <TextInput
         style={styles.input}
@@ -412,9 +413,9 @@ export default function BMICalculatorPage() {
       <TouchableOpacity style={styles.button} onPress={validateForm}>
         <Text style={styles.buttonText}>Calculate BMI</Text>
       </TouchableOpacity>
-      <Text style={styles.listTitle}>BMI History</Text>
-      <TouchableOpacity style={styles.toggleButton} onPress={() => setShowHistory(!showHistory)}>
-        <Text style={styles.toggleButtonText}>{showHistory ? 'Hide History' : 'Show History'}</Text>
+      {/* <Text style={styles.subtitle}>History</Text> */}
+      <TouchableOpacity style={styles.button2} onPress={() => setShowHistory(!showHistory)}>
+        <Text style={styles.buttonText2}>{showHistory ? 'Hide History' : 'Show History'}</Text>
       </TouchableOpacity>
       {showHistory && (
         <ScrollView style={styles.scrollView}>
@@ -436,93 +437,93 @@ export default function BMICalculatorPage() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: StatusBar.currentHeight,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  input: {
-    width: '80%',
-    height: 50,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  button: {
-    width: '80%',
-    height: 50,
-    backgroundColor: '#1e90ff',
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  listTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  listItem: {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 10,
-  },
-  listItemText: {
-    fontSize: 16,
-    marginBottom: 5,
-  },
-  deleteButton: {
-    backgroundColor: '#ff6666',
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 10,
-    width: '100',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  deleteButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  scrollView: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    width: '90%',
-    padding: 5,
-    marginBottom: 15,
-  },
-  toggleButton: {
-    backgroundColor: '#ccc',
-    padding: 10,
-    borderRadius: 5,
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10,
-  },
-  toggleButtonText: {
-    color: '#333',
-    fontWeight: 'bold',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     paddingTop: StatusBar.currentHeight,
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#fff',
+//   },
+//   title: {
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//     marginBottom: 20,
+//   },
+//   input: {
+//     width: '80%',
+//     height: 50,
+//     padding: 10,
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     marginBottom: 10,
+//   },
+//   button: {
+//     width: '80%',
+//     height: 50,
+//     backgroundColor: '#1e90ff',
+//     borderRadius: 5,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginTop: 20,
+//     marginBottom: 10,
+//   },
+//   buttonText: {
+//     color: '#fff',
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//   },
+//   listTitle: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//     marginTop: 20,
+//     marginBottom: 10,
+//   },
+//   listItem: {
+//     width: '100%',
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     padding: 10,
+//     marginBottom: 10,
+//   },
+//   listItemText: {
+//     fontSize: 16,
+//     marginBottom: 5,
+//   },
+//   deleteButton: {
+//     backgroundColor: '#ff6666',
+//     padding: 10,
+//     borderRadius: 5,
+//     marginTop: 10,
+//     width: '100',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   deleteButtonText: {
+//     color: '#fff',
+//     fontWeight: 'bold',
+//   },
+//   scrollView: {
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     width: '90%',
+//     padding: 5,
+//     marginBottom: 15,
+//   },
+//   toggleButton: {
+//     backgroundColor: '#ccc',
+//     padding: 10,
+//     borderRadius: 5,
+//     width: '80%',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginBottom: 10,
+//   },
+//   toggleButtonText: {
+//     color: '#333',
+//     fontWeight: 'bold',
+//   },
+// });

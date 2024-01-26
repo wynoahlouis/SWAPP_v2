@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity, Text, Button } from "react-native";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from 'moment';
-import { useNavigation } from '@react-navigation/native';
+import styles from '../../config/styles';
 
-const SleepTrackerPage = () => {
-  const navigation = useNavigation();
-
+export default function SleepTrackerApp() {
   const [isSleepTimePickerVisible, setSleepTimePickerVisible] = useState(false);
-  const [isWakeUpTimePickerVisible, setWakeUpTimePickerVisible] = useState(false);
-  const [sleepTime, setSleepTime] = useState(null);
-  const [wakeUpTime, setWakeUpTime] = useState(null);
-  const [sleepDuration, setSleepDuration] = useState(null);
+  const [isWakeTimePickerVisible, setWakeTimePickerVisible] = useState(false);
+  const [sleepTime, setSleepTime] = useState('');
+  const [wakeTime, setWakeTime] = useState('');
+  const [sleepResult, setSleepResult] = useState([]);
+  const [showHistory, setShowHistory] = useState(false);
 
   const showSleepTimePicker = () => {
     setSleepTimePickerVisible(true);
@@ -21,63 +20,81 @@ const SleepTrackerPage = () => {
     setSleepTimePickerVisible(false);
   };
 
-  const handleSleepTimeConfirm = (selectedTime) => {
-    setSleepTime(moment(selectedTime).format('hh:mm A'));
+  const handleSleepTimeConfirm = (selectedDate) => {
+    const formattedTime = moment(selectedDate).format('hh:mm A');
+    setSleepTime(formattedTime);
     hideSleepTimePicker();
   };
 
-  const showWakeUpTimePicker = () => {
-    setWakeUpTimePickerVisible(true);
+  const showWakeTimePicker = () => {
+    setWakeTimePickerVisible(true);
   };
 
-  const hideWakeUpTimePicker = () => {
-    setWakeUpTimePickerVisible(false);
+  const hideWakeTimePicker = () => {
+    setWakeTimePickerVisible(false);
   };
 
-  const handleWakeUpTimeConfirm = (selectedTime) => {
-    setWakeUpTime(moment(selectedTime).format('hh:mm A'));
-    hideWakeUpTimePicker();
+  const handleWakeTimeConfirm = (selectedDate) => {
+    const formattedTime = moment(selectedDate).format('hh:mm A');
+    setWakeTime(formattedTime);
+    hideWakeTimePicker();
   };
 
-  const calculateSleepDuration = () => {
-    if (sleepTime && wakeUpTime) {
+  const validateForm = () => {
+    if (!sleepTime || !wakeTime) {
+      alert('All fields are required!');
+    } else {
       const sleepMoment = moment(sleepTime, 'hh:mm A');
-      const wakeUpMoment = moment(wakeUpTime, 'hh:mm A');
-
-      let durationInMilliseconds = wakeUpMoment.diff(sleepMoment);
-
-      if (durationInMilliseconds < 0) {
-        durationInMilliseconds += 24 * 60 * 60 * 1000;
+      const wakeMoment = moment(wakeTime, 'hh:mm A');
+  
+      // Check if wake time is before sleep time but on the next day
+      if (wakeMoment.isBefore(sleepMoment) && wakeMoment.isSame(moment().startOf('day'))) {
+        alert('Wake time should be later than sleep time!');
+      } else {
+        calculateSleepTime();
       }
-
-      const durationInHours = durationInMilliseconds / (1000 * 60 * 60);
-
-      setSleepDuration(durationInHours.toFixed(2));
     }
+  };
+  
+  
+  
+
+  const calculateSleepTime = () => {
+    const sleepMoment = moment(sleepTime, 'hh:mm A');
+    const wakeMoment = moment(wakeTime, 'hh:mm A');
+    
+    // Check if wake time is earlier than sleep time but on the next day
+    if (wakeMoment.isBefore(sleepMoment) && wakeMoment.isSame(moment().startOf('day'))) {
+      alert('Wake time should be later than sleep time!');
+      return;
+    }
+  
+    // Add a day to wakeMoment if it's earlier than sleepMoment
+    if (wakeMoment.isBefore(sleepMoment)) {
+      wakeMoment.add(1, 'day');
+    }
+  
+    const timeSlept = wakeMoment.diff(sleepMoment, 'hours', true);
+  
+    const currentDate = moment().format('YYYY-MM-DD hh:mm A');
+    setSleepResult([...sleepResult, { sleepTime, wakeTime, timeSlept, currentDate }].reverse());
+    setSleepTime('');
+    setWakeTime('');
+  };
+  
+
+  const deleteSleepEntry = (index) => {
+    const newSleepResult = [...sleepResult];
+    newSleepResult.splice(index, 1);
+    setSleepResult(newSleepResult);
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container2}>
       <Text style={styles.title}>Sleep Tracker</Text>
-
       <TouchableOpacity onPress={showSleepTimePicker} style={styles.input}>
-        <Text style={styles.inputText}>{sleepTime ? sleepTime : "Select Sleep Time"}</Text>
+        <Text style={styles.inputText}>{sleepTime ? sleepTime : 'Select Sleep Time'}</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity onPress={showWakeUpTimePicker} style={styles.input}>
-        <Text style={styles.inputText}>{wakeUpTime ? wakeUpTime : "Select Wake Up Time"}</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={calculateSleepDuration}>
-        <Text style={styles.buttonText}>Calculate Sleep Duration</Text>
-      </TouchableOpacity>
-
-      {sleepDuration !== null && (
-        <Text style={styles.resultText}>
-          You slept for {sleepDuration} hours.
-        </Text>
-      )}
-
       <DateTimePickerModal
         isVisible={isSleepTimePickerVisible}
         mode="time"
@@ -85,66 +102,129 @@ const SleepTrackerPage = () => {
         onCancel={hideSleepTimePicker}
       />
 
+      <TouchableOpacity onPress={showWakeTimePicker} style={styles.input}>
+        <Text style={styles.inputText}>{wakeTime ? wakeTime : 'Select Wake Time'}</Text>
+      </TouchableOpacity>
       <DateTimePickerModal
-        isVisible={isWakeUpTimePickerVisible}
+        isVisible={isWakeTimePickerVisible}
         mode="time"
-        onConfirm={handleWakeUpTimeConfirm}
-        onCancel={hideWakeUpTimePicker}
+        onConfirm={handleWakeTimeConfirm}
+        onCancel={hideWakeTimePicker}
       />
 
-      <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.button}>
-        <Text style={styles.buttonText}>Back to Home</Text>
+      <TouchableOpacity style={styles.button} onPress={validateForm}>
+        <Text style={styles.buttonText}>Calculate Sleep Time</Text>
       </TouchableOpacity>
+      {/* <Text style={styles.subtitle}>Sleep History</Text> */}
+      <TouchableOpacity style={styles.button2} onPress={() => setShowHistory(!showHistory)}>
+        <Text style={styles.buttonText2}>{showHistory ? 'Hide History' : 'Show History'}</Text>
+      </TouchableOpacity>
+      {showHistory && (
+        <ScrollView style={styles.scrollView}>
+          {sleepResult.map((item, index) => (
+            <View key={index} style={styles.listItem}>
+              <Text style={styles.listItemText}>Date and Time: {item.currentDate}</Text>
+              <Text style={styles.listItemText}>Sleep Time: {item.sleepTime}</Text>
+              <Text style={styles.listItemText}>Wake Time: {item.wakeTime}</Text>
+              <Text style={styles.listItemText}>Time Slept: {item.timeSlept.toFixed(2)} hours</Text>
+              <TouchableOpacity style={styles.deleteButton} onPress={() => deleteSleepEntry(index)}>
+                <Text style={styles.deleteButtonText}>Delete</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </ScrollView>
+      )}
     </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "center",
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 10,
-    width: '80%',
-    justifyContent: 'center',
-    backgroundColor: '#f0f0f0',
-  },
-  inputText: {
-    fontSize: 16,
-    color: '#333',
-  },
-  resultText: {
-    fontSize: 20,
-    marginTop: 20,
-    color: '#00aaff',
-  },
-  button: {
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    backgroundColor: '#365486',
-    borderRadius: 30,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
 
-export default SleepTrackerPage;
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#fff',
+//   },
+//   title: {
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//     marginBottom: 20,
+//   },
+//   input: {
+//     width: '80%',
+//     height: 50,
+//     padding: 10,
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     marginBottom: 10,
+//   },
+//   button: {
+//     width: '80%',
+//     height: 50,
+//     backgroundColor: '#1e90ff',
+//     borderRadius: 5,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginTop: 20,
+//     marginBottom: 10,
+//   },
+//   buttonText: {
+//     color: '#fff',
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//   },
+//   listTitle: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//     marginTop: 20,
+//     marginBottom: 10,
+//   },
+//   listItem: {
+//     width: '100%',
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     padding: 10,
+//     marginBottom: 10,
+//   },
+//   listItemText: {
+//     fontSize: 16,
+//     marginBottom: 5,
+//   },
+//   deleteButton: {
+//     backgroundColor: '#ff6666',
+//     padding: 10,
+//     borderRadius: 5,
+//     marginTop: 10,
+//     width: '100',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   deleteButtonText: {
+//     color: '#fff',
+//     fontWeight: 'bold',
+//   },
+//   scrollView: {
+//     borderWidth: 1,
+//     borderColor: '#ccc',
+//     borderRadius: 5,
+//     width: '90%',
+//     padding: 5,
+//     marginBottom: 15,
+//   },
+//   toggleButton: {
+//     backgroundColor: '#ccc',
+//     padding: 10,
+//     borderRadius: 5,
+//     width: '80%',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     marginBottom: 10,
+//   },
+//   toggleButtonText: {
+//     color: '#333',
+//     fontWeight: 'bold',
+//   },
+// });
