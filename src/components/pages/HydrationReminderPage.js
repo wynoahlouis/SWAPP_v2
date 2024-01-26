@@ -66,7 +66,7 @@ const HydrationReminderPage = () => {
               <Picker.Item label={index.toString()} value={index.toString()} key={index} />
             ))}
           </Picker>
-          <Text style={styles.unitText}>Hrs</Text>
+          <Text style={styles.unitText}>Hours</Text>
         </View>
 
         <View style={styles.pickerWithUnit}>
@@ -79,18 +79,14 @@ const HydrationReminderPage = () => {
               <Picker.Item label={index.toString()} value={index.toString()} key={index} />
             ))}
           </Picker>
-          <Text style={styles.unitText}>Min</Text>
+          <Text style={styles.unitText}>Minutes</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.button2} onPress={handleStartTimer}>
-        <Text style={styles.buttonText2}>Start Timer</Text>
+      <TouchableOpacity style={styles.startButton} onPress={handleStartTimer}>
+        <Text style={styles.buttonText}>Start Timer</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.stopbutton} onPress={handleStopTimer}>
-        <Text style={styles.stopButtonText}>Stop Timer</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.button}>
-        <Text style={styles.buttonText}>Back to Home</Text>
+      <TouchableOpacity style={styles.stopButton} onPress={handleStopTimer}>
+        <Text style={styles.buttonText2}>Stop Timer</Text>
       </TouchableOpacity>
       
       {remainingTime !== null && (

@@ -150,18 +150,30 @@ const styles = StyleSheet.create({
       remainingTime: {
         marginTop: 20,
       },
-      stopButton: {
-        backgroundColor: '#ff6666',
-        padding: 10,
-        borderRadius: 5,
-        marginTop: 10,
-        width: '100',
+      startButton: {
+        width: '80%',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingVertical: 14,
+        backgroundColor: '#365486',
+        borderRadius: 30,
+        borderWidth: 2.5,
+        borderStyle: 'solid',
+        borderColor: '#365486',
+        marginTop: 20,
       },
-      stopButtonText: {
-        color: '#fff',
-        fontWeight: 'bold',
+      stopButton: {
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 10,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 30,
+        borderWidth: 2.5,
+        borderStyle: 'solid',
+        borderColor: '#365486',
+        marginTop: 10,
+        marginBottom: 10,
       },
 
   

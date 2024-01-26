@@ -162,6 +162,7 @@
 //     },
 //   });
 
+// -------------------------------------------------
 import React from "react";
 import { Button, Avatar, Title, Caption, Text, TouchableRipple } from "react-native-paper";
 import { View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
@@ -204,10 +205,10 @@ const ProfilePage = () => {
             <Icon name="phone" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>09356362269</Text>
           </View>
-          <View style={styles.row}>
+          {/* <View style={styles.row}>
             <Icon name="email" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>wynoahtabasan@gmail.com</Text>
-          </View>
+          </View> */}
           <View style={styles.row}>
             <Icon name="cake" color="#365486" size={20}/>
             <Text style={{color:"#777777", marginLeft: 20}}>April 26, 2002</Text>
