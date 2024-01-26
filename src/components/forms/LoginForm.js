@@ -22,8 +22,8 @@ export default function LoginForm({ navigation }) {
   
   const handleLogin = async (values) => {
     try {
-      // const url = "http://192.168.1.5:8000/api/v1/login";
-      const url = "http://192.168.116.40:8000/api/v1/login";
+      const url = "http://192.168.1.5:8000/api/v1/login";
+      // const url = "http://192.168.116.40:8000/api/v1/login";
 
       const result = await fetchServices.postData(url, values);
       console.debug(result);
@@ -85,7 +85,7 @@ export default function LoginForm({ navigation }) {
               mode="outlined"
               placeholder="Password"
               label="Password"
-              left={<TextInput.Icon icon="lock" />}
+              left={<TextInput.Icon icon="key" />}
               secureTextEntry={!showPass}
               right={
                 <TextInput.Icon

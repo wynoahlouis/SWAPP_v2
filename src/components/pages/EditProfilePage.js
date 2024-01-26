@@ -67,6 +67,7 @@
 //   }
 // });
 
+// ------------------------------------------------
 
 import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, TextInput, Image } from 'react-native';
@@ -155,3 +156,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
+
+// ------------------------------------------------
+
+
