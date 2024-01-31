@@ -24,6 +24,8 @@ export default function LoginForm({ navigation }) {
     try {
       const url = "http://192.168.1.5:8000/api/v1/login";
       // const url = "http://192.168.116.40:8000/api/v1/login";
+      // const url = "http://192.168.43.94:8000/api/v1/login";
+
 
       const result = await fetchServices.postData(url, values);
       console.debug(result);
