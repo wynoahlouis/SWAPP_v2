@@ -47,7 +47,6 @@ export default function SleepTrackerApp() {
       const sleepMoment = moment(sleepTime, 'hh:mm A');
       const wakeMoment = moment(wakeTime, 'hh:mm A');
   
-      // Check if wake time is before sleep time but on the next day
       if (wakeMoment.isBefore(sleepMoment) && wakeMoment.isSame(moment().startOf('day'))) {
         alert('Wake time should be later than sleep time!');
       } else {
@@ -57,11 +56,9 @@ export default function SleepTrackerApp() {
   };
   
   
-  
-
   const calculateSleepTime = () => {
-    const sleepMoment = moment(sleepTime, 'hh:mm A');
-    const wakeMoment = moment(wakeTime, 'hh:mm A');
+  const sleepMoment = moment(sleepTime, 'hh:mm A');
+  const wakeMoment = moment(wakeTime, 'hh:mm A');
     
     // Check if wake time is earlier than sleep time but on the next day
     if (wakeMoment.isBefore(sleepMoment) && wakeMoment.isSame(moment().startOf('day'))) {
@@ -82,7 +79,6 @@ export default function SleepTrackerApp() {
     setWakeTime('');
   };
   
-
   const deleteSleepEntry = (index) => {
     const newSleepResult = [...sleepResult];
     newSleepResult.splice(index, 1);
@@ -115,7 +111,6 @@ export default function SleepTrackerApp() {
       <TouchableOpacity style={styles.button} onPress={validateForm}>
         <Text style={styles.buttonText}>Calculate Sleep Time</Text>
       </TouchableOpacity>
-      {/* <Text style={styles.subtitle}>Sleep History</Text> */}
       <TouchableOpacity style={styles.button2} onPress={() => setShowHistory(!showHistory)}>
         <Text style={styles.buttonText2}>{showHistory ? 'Hide History' : 'Show History'}</Text>
       </TouchableOpacity>
@@ -138,93 +133,3 @@ export default function SleepTrackerApp() {
   );
 }
 
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: '#fff',
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginBottom: 20,
-//   },
-//   input: {
-//     width: '80%',
-//     height: 50,
-//     padding: 10,
-//     borderWidth: 1,
-//     borderColor: '#ccc',
-//     borderRadius: 5,
-//     marginBottom: 10,
-//   },
-//   button: {
-//     width: '80%',
-//     height: 50,
-//     backgroundColor: '#1e90ff',
-//     borderRadius: 5,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     marginTop: 20,
-//     marginBottom: 10,
-//   },
-//   buttonText: {
-//     color: '#fff',
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//   },
-//   listTitle: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//     marginTop: 20,
-//     marginBottom: 10,
-//   },
-//   listItem: {
-//     width: '100%',
-//     borderWidth: 1,
-//     borderColor: '#ccc',
-//     borderRadius: 5,
-//     padding: 10,
-//     marginBottom: 10,
-//   },
-//   listItemText: {
-//     fontSize: 16,
-//     marginBottom: 5,
-//   },
-//   deleteButton: {
-//     backgroundColor: '#ff6666',
-//     padding: 10,
-//     borderRadius: 5,
-//     marginTop: 10,
-//     width: '100',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   deleteButtonText: {
-//     color: '#fff',
-//     fontWeight: 'bold',
-//   },
-//   scrollView: {
-//     borderWidth: 1,
-//     borderColor: '#ccc',
-//     borderRadius: 5,
-//     width: '90%',
-//     padding: 5,
-//     marginBottom: 15,
-//   },
-//   toggleButton: {
-//     backgroundColor: '#ccc',
-//     padding: 10,
-//     borderRadius: 5,
-//     width: '80%',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     marginBottom: 10,
-//   },
-//   toggleButtonText: {
-//     color: '#333',
-//     fontWeight: 'bold',
-//   },
-// });

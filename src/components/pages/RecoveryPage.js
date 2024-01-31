@@ -7,9 +7,7 @@ const RecoveryPage = ({ navigation }) => {
   const [email, setEmail] = React.useState('');
 
   const handleRecoverAccount = () => {
-    // Add your account recovery logic here
     console.log('Recover Account:', { email });
-    // For simplicity, just navigate to the Home page
     navigation.navigate('Home');
   };
 

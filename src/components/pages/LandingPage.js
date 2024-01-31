@@ -7,7 +7,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 function LandingPage() {
     const navigation = useNavigation();
     const handleLoginPress = () => {
-    // Navigate to the Login page
         navigation.navigate('Login')
     };
     const handleSignupPress = () => {
@@ -18,7 +17,6 @@ function LandingPage() {
         <View>
             <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
         </View>
-        {/* <Text style={styles.appName}>SWAPP</Text> */}
         <Text style={styles.subHeading}>Your companion for a healthier mind & body</Text>
         <View style={styles.loginsignup}>
             <TouchableOpacity style={styles.loginButton} onPress={handleLoginPress}>
@@ -26,11 +24,6 @@ function LandingPage() {
                     GET STARTED!
                 </Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.signupButton} onPress={handleSignupPress}>
-                <Text style={styles.SignupText}>
-                    Signup
-                </Text>
-            </TouchableOpacity> */}
         </View>
     </SafeAreaView>
   )
@@ -97,7 +90,7 @@ const styles = StyleSheet.create({
     appName:{
         marginTop: 10,
         fontSize: 40,
-        fontWeight: '900', // React Native uses string values for fontWeight
+        fontWeight: '900',
         lineHeight: 66,
         letterSpacing: 3,
         textAlign: 'center',

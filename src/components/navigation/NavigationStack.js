@@ -1,4 +1,3 @@
-// Import necessary libraries and components
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -76,9 +75,9 @@ const HomeTabNavigator = () => (
 
     <Tab.Screen
       name="EditProfile"
-      component={EditProfilePage} // Use CustomStackNavigator for HydrationReminder
+      component={EditProfilePage} // Use CustomStackNavigator for EditProfilePage
       options={{
-        tabBarButton: () => null, // No button for HydrationReminderPage
+        tabBarButton: () => null, // No button for EditProfilePage
         headerShown: false
 
       }}
@@ -113,15 +112,9 @@ const CustomStackNavigator = () => (
       name="Profile"
       component={ProfilePage}
     />
-    {/* <Stack.Screen
-      options={{ headerShown: () => () }}
-      name="EditProfile"
-      component={EditProfilePage}
-    /> */}
     <Stack.Screen
         options={{
           header: () => (
-            // Custom header component for EditProfilePage
             <Header title="Edit Profile" />
           ),
         }}

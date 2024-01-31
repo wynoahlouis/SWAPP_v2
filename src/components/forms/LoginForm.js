@@ -68,7 +68,6 @@ export default function LoginForm({ navigation }) {
               placeholder="Email"
               label="Email"
               left={<TextInput.Icon icon="email" color={'#365486'} />}
-              // style={{ marginTop: 10 }}
               style={styles.userInput}
               defaultValue={values.email}
               value={values.email}
@@ -126,16 +125,6 @@ export default function LoginForm({ navigation }) {
             </Text>
 
             </View>
-
-            {/* <TouchableOpacity
-              disabled={isSubmitting}
-              onPress={() => navigation.navigate("Register")}
-              icon="account-plus"
-              mode="contained"
-              style={styles.button}
-            >
-            <Text style={styles.buttonText}>Register</Text>
-            </TouchableOpacity> */}
           </View>
         );
       }}
@@ -177,30 +166,24 @@ title: {
   fontWeight: 'bold',
   marginBottom: 0,
   marginTop: 20
-  // marginTop: -80,
-  // marginLeft: 80
 },
 appName:{
   marginTop: 5,
   marginBottom:10,
   fontSize: 40,
-  fontWeight: '900', // React Native uses string values for fontWeight
+  fontWeight: '900', 
   lineHeight: 38,
   letterSpacing: 3,
   textAlign: 'center',
   color: '#365486',
 },
 signUpText: {
-  color: '#365486', // Set the desired text color
-  textDecorationLine: 'underline', // Underline the text to indicate it's clickable
+  color: '#365486', 
+  textDecorationLine: 'underline', 
 },
 infoText: {
   marginTop: 10,
   alignItems: 'center'
 }
-// userInput:{
-//   marginTop: 10,
-//   borderRadius: 40
-// }
 }
 )

@@ -96,50 +96,5 @@ const HydrationReminderPage = () => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   title: {
-//     fontSize: 24,
-//     marginBottom: 20,
-//   },
-//   pickerContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'center', // Center the row
-//     marginBottom: 20,
-//   },
-//   pickerWithUnit: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//   },
-//   picker: {
-//     width: 100,
-//     height: 40,
-//     borderColor: 'gray',
-//     borderWidth: 1,
-//     marginHorizontal: 5,
-//     justifyContent: 'center',
-//   },
-//   unitText: {
-//     marginLeft: 10,
-//     fontSize: 18,
-//   },
-//   button: {
-//     backgroundColor: '#3498db',
-//     padding: 10,
-//     borderRadius: 5,
-//     marginBottom: 10,
-//   },
-//   buttonText: {
-//     color: 'white',
-//     textAlign: 'center',
-//   },
-//   remainingTime: {
-//     marginTop: 20,
-//   },
-// });
 
 export default HydrationReminderPage;

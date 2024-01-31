@@ -68,8 +68,6 @@
       <View styles={{ flex: 1 }}>
         
         <Image source={require('../../../assets/newlogo.png')} style={styles.logo} resizeMode='contain'/>
-        {/* <Image source={require('../../../assets/SWAPP_logo_clear.png')} style={styles.logo} resizeMode='contain'/>
-        <Text style={styles.appName}>SWAPP</Text> */}
         <Text style={styles.title}>Create an account:</Text>
         <TextInput
           mode="outlined"
@@ -183,7 +181,6 @@
       height: 160,
       marginTop: 30,
       marginBottom: 10,
-      // marginLeft: 70,
       alignItems: 'center'
   },
   title: {
