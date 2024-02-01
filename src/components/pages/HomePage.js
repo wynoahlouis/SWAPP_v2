@@ -79,6 +79,37 @@ const HomePage = () => {
           })}
         </ScrollView>
       </View>
+
+      <View style={styles.container}>
+      <View style={styles.inlineContainer}>
+        <Text style={{ width: '50%', margin: 10}}>Hydration is vital for our health and well-being, as water makes up two thirds of our body and helps with many functions.</Text>
+          <View style={styles.inlineImageBox}>
+            <Image
+              source={{ uri: 'https://cdn-icons-png.flaticon.com/512/2447/2447774.png' }}
+              style={styles.inlineImage}
+            />
+          </View>
+      </View>
+      
+      <View style={styles.inlineContainer}>
+          <View style={styles.inlineImageBox}>
+            <Image
+              source={{ uri: 'https://cdn-icons-png.flaticon.com/512/10476/10476452.png' }}
+              style={styles.inlineImage}
+            />
+          </View>
+          <Text style={{ width: '50%', margin: 10}}> Body weight is correlated with health and fitness and can be used as an indicator of progress</Text>
+      </View>
+      <View style={styles.inlineContainer}>
+        <Text style={{ width: '50%', margin: 10}}>Sleep plays a crucial role in tissue repair, hormone regulation, and overall health.</Text>
+        <View style={styles.inlineImageBox}>
+          <Image
+            source={{ uri: 'https://cdn-icons-png.flaticon.com/512/3094/3094837.png' }}
+            style={styles.inlineImage}
+          />
+        </View>
+      </View>
+    </View>
     </ScrollView>
   );
 };

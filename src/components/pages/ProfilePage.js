@@ -15,6 +15,10 @@ const ProfilePage = () => {
     navigation.navigate('EditProfile');
   };
 
+  const onDummyScreen = () => {
+    navigation.navigate('Dummy');
+  };
+
   const onLogout = () => {
     Alert.alert(
       "Log Out",
@@ -94,19 +98,19 @@ const ProfilePage = () => {
               <Text style={styles.profileItemText}>Edit Profile</Text>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={onDummyScreen}>
             <View style={styles.profileItem}>
               <Icon name="credit-card" color="#365486" size={25}/>
               <Text style={styles.profileItemText}>Payment</Text>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={onDummyScreen}>
             <View style={styles.profileItem}>
               <Icon name="account-check-outline" color="#365486" size={25}/>
               <Text style={styles.profileItemText}>Support</Text>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={onDummyScreen}>
             <View style={styles.profileItem}>
               <Icon name="cog-outline" color="#365486" size={25}/>
               <Text style={styles.profileItemText}>Settings</Text>
